@@ -1,4 +1,3 @@
-// Define the data to populate the HTML dynamically
 const peopleData = [
   {
     name: "Alex",
@@ -66,16 +65,13 @@ const peopleData = [
   },
 ];
 
-// Create the DOM elements dynamically
 const container = document.querySelector(".main__container");
 
-// Create the title element
 const title = document.createElement("div");
 title.classList.add("title");
 title.textContent = "Tabs";
 container.appendChild(title);
 
-// Create the gender container with the tabs
 const genderContainer = document.createElement("div");
 genderContainer.classList.add("gender__container");
 
@@ -92,7 +88,6 @@ for (const gender of genders) {
 genderContainer.appendChild(genderTabs);
 container.appendChild(genderContainer);
 
-// Create the body container with the list of people
 const bodyContainer = document.createElement("div");
 bodyContainer.classList.add("body__container");
 
@@ -151,8 +146,34 @@ for (const person of peopleData) {
 bodyContainer.appendChild(peopleList);
 container.appendChild(bodyContainer);
 
-// Create the horizontal line elements
 const hrElements = document.querySelectorAll("hr");
 hrElements.forEach((hr) => {
   hr.classList.add("hr");
 });
+
+const maleTab = document.querySelector("[data-tab='male']");
+const femaleTab = document.querySelector("[data-tab='female']");
+const bothTab = document.querySelector("[data-tab='both']");
+
+maleTab.addEventListener("click", () => {
+  filterPeople("male");
+});
+
+femaleTab.addEventListener("click", () => {
+  filterPeople("female");
+});
+
+bothTab.addEventListener("click", () => {
+  filterPeople("both");
+});
+
+function filterPeople(gender) {
+  const people = document.querySelectorAll(".person__container");
+  people.forEach((person) => {
+    if (gender === "both" || person.classList.contains(gender)) {
+      person.style.display = "block";
+    } else {
+      person.style.display = "none";
+    }
+  });
+}
