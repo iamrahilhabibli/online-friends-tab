@@ -3,7 +3,6 @@
   padding: 0;
   list-style: none;
   font-family: "Montserrat", sans-serif;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -57,20 +56,19 @@ body {
 .main__container .gender__container ul li:hover,
 .main__container .gender__container ul li.active {
   background: #7fc469;
-  color: #fff;
+  color: white;
 }
-
-.main__container .body__container .gender__container {
+.gender__container {
   padding: 10px 20px;
-  border-bottom: 1px solid #ebedec;
   cursor: pointer;
 }
 
-.main__container .body__container .gender__container:hover {
-  background: #e9ecf1;
+.gender__container:hover {
+  background: white;
+  cursor: pointer;
 }
 
-.main__container .body__container .person_tab {
+.body__container .person_tab {
   position: relative;
   display: flex;
   align-items: center;
@@ -92,36 +90,30 @@ body {
   margin-left: 20px;
 }
 
-.person__container .person_tab_left .person_data .name {
+.name {
   font-weight: 600;
 }
 
-.person__container .person_tab_left .person_data .distance {
-  color: #7f8b9b;
+.distance {
+  color: gray;
   font-size: 14px;
   margin-top: 3px;
 }
 
-.person__container .person_tab_right .status {
+.status {
   position: relative;
-  color: #77818d;
+  color: gray;
 }
-
-.person__container .person_tab_right .status:before {
+.status:before {
   content: "";
   position: absolute;
   top: 5px;
-  left: -12px;
-  width: 8px;
-  height: 8px;
+  left: -20px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: #b3bbc8;
+  background: gray;
 }
-
-.person__container.offline .person_tab_right .status {
-  color: #b3bbc8;
-}
-
 .person__container.online .person_tab_right .status:before {
   background: #7fc469;
 }
