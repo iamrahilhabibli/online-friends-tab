@@ -65,6 +65,10 @@ const peopleData = [
   },
 ];
 
+const maleData = peopleData.filter((person) => person.gender === "male");
+const femaleData = peopleData.filter((person) => person.gender === "female");
+const allData = [...peopleData];
+
 const container = document.querySelector(".main__container");
 
 const title = document.createElement("div");
@@ -176,4 +180,9 @@ function filterPeople(gender) {
       person.style.display = "none";
     }
   });
+  localStorage.setItem("selectedGender", gender);
+}
+const selectedGender = localStorage.getItem("selectedGender");
+if (selectedGender) {
+  filterPeople(selectedGender);
 }
